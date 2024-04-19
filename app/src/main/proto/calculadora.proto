@@ -1,0 +1,22 @@
+// syntax aquí representa la versión de Protobuf que estamos usando
+syntax = "proto3";
+
+// Esto es específico de Java
+// el paquete donde generar automáticamente el código a partir del archivo ".proto"
+option java_package = "com.proto.calculadora";
+
+message CalculadoraEntrada {
+    int32 a = 1;
+    int32 b = 2;
+}
+
+message CalculadoraSalida {
+    int32 resultado = 1;
+}
+
+service CalculadoraService {
+    rpc sum(CalculadoraEntrada) returns (CalculadoraSalida);
+    rpc res(CalculadoraEntrada) returns (CalculadoraSalida);
+    rpc mul(CalculadoraEntrada) returns (CalculadoraSalida);
+    rpc div(CalculadoraEntrada) returns (CalculadoraSalida);
+}
